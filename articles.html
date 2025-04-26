@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everest - The Pomsky</title>
+    <title>Статьи об Pomsky Everest и не только</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <button class="hamburger">☰</button>
             <div class="logo-section">
                 <img src="images/logo.webp" alt="Everest Logo" class="logo">
-                <h1 class="site-title">EVEREST<br><span class="subtitle">Pomsky Adventurer</span></h1>
+                <h1 class="site-title">EVEREST<br><span class="subtitle">Статьи</span></h1>
             </div>
             <div class="social-links social-center">
                 <a href="images/inst.png" target="_blank" rel="noopener">
@@ -39,9 +39,9 @@
         <nav class="nav-container">
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item active"><a href="index.html">Главная</a></li>
+                    <li class="nav-item"><a href="index.html">Главная</a></li>
                     <li class="nav-item"><a href="foto.html">Фото</a></li>
-                    <li class="nav-item"><a href="articles.html">Статьи</a></li>
+                    <li class="nav-item active">Статьи</li>
                 </ul>
             </div>
         </nav>
@@ -50,8 +50,8 @@
     <main class="main-content">
         <section class="hero-section">
             <div class="hero-content">
-                <h2>Добро пожаловать на сайт Everest!</h2>
-                <p>Самый очаровательный Pomsky в мире</p>
+                <h2>Статьи</h2>
+                <p>Эта страница находится в разработке. Скоро здесь появятся интересные материалы!</p>
             </div>
         </section>
     </main>
@@ -67,8 +67,7 @@
             });
 
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-container') && 
-                    !e.target.closest('.hamburger')) {
+                if (!e.target.closest('.nav-container') && !e.target.closest('.hamburger')) {
                     navList.classList.remove('active');
                 }
             });

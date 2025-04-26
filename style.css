@@ -1,0 +1,322 @@
+/* ================================================
+   CSS Variables & Base Reset
+   ================================================ */
+:root {
+    --primary-bg: #fed835;
+    --secondary-bg: #f8f9fa;
+    --body-bg: #f3f4f6;
+    --text-color: #2d3748;
+    --hover-bg: #e2e6ea;
+    --active-bg: #cce5ff;
+    --max-width: 1200px;
+    --header-padding: 1rem;
+    --mobile-gap: 0.3rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: var(--body-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================================================
+   Header & Navigation (Desktop)
+   ================================================ */
+.header {
+    background: var(--primary-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: var(--header-padding);
+    position: relative;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.site-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.subtitle {
+    font-size: 0.8em;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* Contacts */
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--text-color);
+    align-items: flex-end;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0);
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+.social-icon {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+}
+.social-icon:hover {
+    transform: scale(1.1);
+}
+/* Десктопное позиционирование соц. ссылок */
+.social-links.social-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Navigation */
+.nav-container {
+    background: var(--secondary-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav-menu {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--header-padding);
+    position: relative;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+}
+.nav-item {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.nav-item a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+}
+.nav-item.active {
+    background: var(--active-bg);
+}
+.nav-item:not(.active):hover {
+    background: var(--hover-bg);
+    cursor: pointer;
+}
+
+/* Для десктопа отступ для основного контента */
+.main-content {
+    margin-top: 320px;
+}
+
+/* ================================================
+   Gallery Styles
+   ================================================ */
+.photo-gallery {
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.album-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    aspect-ratio: 1;
+}
+.album-card:hover {
+    transform: translateY(-5px);
+}
+.album-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.album-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    padding: 1rem;
+    color: white;
+}
+.album-title {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* ================================================
+   Mobile Styles (max-width: 768px)
+   ================================================ */
+@media (max-width: 768px) {
+    /* Header становится частью потока */
+    .header {
+        position: static;
+    }
+    .main-content {
+        margin-top: 0;
+    }
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--mobile-gap);
+        padding: var(--mobile-gap);
+    }
+    .logo-section {
+        flex-direction: column;
+        order: -1;
+        margin-top: var(--mobile-gap);
+    }
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+    /* Показываем только subtitle */
+    .site-title > :not(.subtitle) {
+        display: none;
+    }
+    .site-title .subtitle {
+        font-size: 1rem;
+        line-height: 1.2;
+        color: var(--text-color);
+    }
+    .contacts {
+        align-items: center;
+    }
+    /* Социальные ссылки в мобильной верстке выводим в поток */
+    .social-links.social-center {
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem 0;
+    }
+    .social-links.social-center a {
+        margin: 0 0.5rem;
+    }
+    .social-links.social-center .social-icon {
+        transform: scale(0.8);
+    }
+    /* Hamburger-кнопка */
+    .hamburger {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 102;
+    }
+    /* Мобильное меню */
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background: var(--secondary-bg);
+        position: fixed;
+        top: 3rem;
+        right: 1rem;
+        width: 200px;
+        z-index: 101;
+    }
+    .nav-list.active {
+        display: flex;
+    }
+    /* Улучшенные стили для мобильных кнопок меню */
+    .nav-item {
+        padding: 0.8rem 1rem;
+        border: none;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        text-align: left;
+        background: var(--secondary-bg);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s, transform 0.3s;
+    }
+    .nav-item:hover {
+        background: var(--hover-bg);
+        transform: translateY(-2px);
+    }
+    .nav-item:active {
+        background: var(--active-bg);
+    }
+    .nav-item:last-child {
+        margin-bottom: 0;
+    }
+    /* Галерея в мобильной версии */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .album-card {
+        aspect-ratio: auto;
+        height: 300px;
+    }
+}
+
+/* ================================================
+   Desktop Overrides (min-width: 769px)
+   ================================================ */
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}

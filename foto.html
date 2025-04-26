@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Everest - The Pomsky</title>
+    <title>Everest - Фотоальбомы</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <button class="hamburger">☰</button>
             <div class="logo-section">
                 <img src="images/logo.webp" alt="Everest Logo" class="logo">
-                <h1 class="site-title">EVEREST<br><span class="subtitle">Pomsky Adventurer</span></h1>
+                <h1 class="site-title">EVEREST<br><span class="subtitle">Фотоальбомы</span></h1>
             </div>
             <div class="social-links social-center">
                 <a href="images/inst.png" target="_blank" rel="noopener">
@@ -39,21 +39,44 @@
         <nav class="nav-container">
             <div class="nav-menu">
                 <ul class="nav-list">
-                    <li class="nav-item active"><a href="index.html">Главная</a></li>
-                    <li class="nav-item"><a href="foto.html">Фото</a></li>
+                    <li class="nav-item"><a href="index.html">Главная</a></li>
+                    <li class="nav-item active">Фото</li>
                     <li class="nav-item"><a href="articles.html">Статьи</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="main-content">
-        <section class="hero-section">
-            <div class="hero-content">
-                <h2>Добро пожаловать на сайт Everest!</h2>
-                <p>Самый очаровательный Pomsky в мире</p>
-            </div>
-        </section>
+    <main class="photo-gallery">
+        <div class="gallery-grid">
+            <a href="album1.html" class="album-card">
+                <img src="images/album1-thumb.jpg" alt="Зимние приключения" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Зимние приключения</h3>
+                </div>
+            </a>
+
+            <a href="album2.html" class="album-card">
+                <img src="images/album2-thumb.jpg" alt="Летние деньки" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Летние деньки</h3>
+                </div>
+            </a>
+
+            <a href="album3.html" class="album-card">
+                <img src="images/album3-thumb.jpg" alt="Игры с друзьями" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Игры с друзьями</h3>
+                </div>
+            </a>
+
+            <a href="album4.html" class="album-card">
+                <img src="images/album4-thumb.jpg" alt="Дрессировка" class="album-image">
+                <div class="album-overlay">
+                    <h3 class="album-title">Дрессировка</h3>
+                </div>
+            </a>
+        </div>
     </main>
 
     <script>
@@ -67,8 +90,7 @@
             });
 
             document.addEventListener('click', (e) => {
-                if (!e.target.closest('.nav-container') && 
-                    !e.target.closest('.hamburger')) {
+                if (!e.target.closest('.nav-container') && !e.target.closest('.hamburger')) {
                     navList.classList.remove('active');
                 }
             });
